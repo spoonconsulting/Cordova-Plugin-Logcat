@@ -13,7 +13,7 @@ public class LogCat extends CordovaPlugin {
     }
 
     public String getFilePath() {
-        File outputFile = new File(cordova.getActivity().getApplicationContext().getFilesDir(), "logcat.txt");
+        File outputFile = new File(Environment.getExternalStorageDirectory(), "logcat.txt");
         return outputFile.getAbsolutePath();
     }
 
