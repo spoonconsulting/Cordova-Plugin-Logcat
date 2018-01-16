@@ -9,15 +9,16 @@ import android.os.Environment;
 
 
 public class LogCat extends CordovaPlugin {
-	protected void pluginInitialize() {
-	  }
+    protected void pluginInitialize() {
+    }
 
-    public String getFilePath(){
-        File outputFile = new File(cordova.getActivity().getApplicationContext().getFilesDir(),"logcat.txt");
+    public String getFilePath() {
+        File outputFile = new File(cordova.getActivity().getApplicationContext().getFilesDir(), "logcat.txt");
         return outputFile.getAbsolutePath();
     }
-	  public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-	    if (action.equals("logToFile")) {
+
+    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
+        if (action.equals("logToFile")) {
             // save logcat in file
             try {
                 Runtime.getRuntime().exec("logcat -f " + getFilePath());
@@ -26,11 +27,11 @@ public class LogCat extends CordovaPlugin {
                 e.printStackTrace();
             }
             return true;
-	    }if (action.equals("getLogPath")) {
+        } else if (action.equals("getLogPath")) {
             callbackContext.success(getFilePath());
+            return true;
+        } else {
+            return false;
         }
-        else{
-	        return false;
-	    }
-      }
+    }
 }
