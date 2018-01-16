@@ -6,6 +6,6 @@
 
 @interface LogCat : CDVPlugin
 
-- (void) sendLogs:(CDVInvokedUrlCommand*)command;
-
+- (void) logToFile:(CDVInvokedUrlCommand*)command;
+- (void) getLogPath:(CDVInvokedUrlCommand*)command;
 @end
