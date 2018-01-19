@@ -24,7 +24,7 @@
     <source-file src="src/android/LogCat.java" target-dir="src/org/apache/cordova/logcat" />
   </platform>
         
-    <config-file target="AndroidManifest.xml" parent="/manifest">
+    <config-file target="app/src/main/AndroidManifest.xml" parent="/manifest">
       <uses-permission android:name="android.permission.READ_LOGS" />
     </config-file>
     
