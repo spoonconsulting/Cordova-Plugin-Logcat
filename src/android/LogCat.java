@@ -21,8 +21,14 @@ public class LogCat extends CordovaPlugin {
         if (action.equals("logToFile")) {
             // save logcat in file
             try {
+                File outputFile = new File(getFilePath());
+                if (outputFile.exists()){
+                    outputFile.delete();
+                }
+                outputFile.createNewFile();
+
                 Runtime.getRuntime().exec("logcat -f " + getFilePath());
-            } catch (IOException e) {
+            } catch (Exception e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
